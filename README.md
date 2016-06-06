@@ -1,0 +1,1 @@
+# themeszone-wc-ajax-qty
