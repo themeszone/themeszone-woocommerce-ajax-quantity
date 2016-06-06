@@ -1,0 +1,33 @@
+.tz-qty-container .tz-qty-cont{
+    display: inline-block;
+    width: 42px;
+    height: 42px;
+    text-align: center;
+    background-color: #f7f7f7;
+    border: #d1d1d1 1px solid;
+    border-radius: 3px;
+    vertical-align: middle;
+    font-size: 20px;
+    color: #686868;
+    cursor: pointer;
+    transition: background-color 0.4s ease;
+}
+
+.tz-qty-container .tz-qty:hover{
+    background-color: #e6e5e5;
+}
+
+.tz-qty-container .quantity{
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.tz-qty-container.hidden{
+    display: none !important;
+}
+
+li.product a.button.added, li.product a.added_to_cart, li.product a.add_to_cart_button.hidden{
+    display: none !important;
+}
+
