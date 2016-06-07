@@ -1,13 +1,14 @@
 .tz-qty-container .tz-qty-cont{
     display: inline-block;
-    width: 42px;
-    height: 42px;
+    width: 28px;
+    height: 28px;
     text-align: center;
     background-color: #f7f7f7;
     border: #d1d1d1 1px solid;
     border-radius: 3px;
     vertical-align: middle;
     font-size: 20px;
+    line-height: 1.25em;
     color: #686868;
     cursor: pointer;
     transition: background-color 0.4s ease;
