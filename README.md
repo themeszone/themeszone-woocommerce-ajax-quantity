@@ -22,7 +22,7 @@ page.
 Installation
 ============
 
-1. Upload `themeszone-wc-ajax-qty` folder to the `/wp-content/plugins/` directory.
+1. Upload `themeszone-woocommerce-ajax-quantity` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 
 Frequently Asked Questions
@@ -33,7 +33,7 @@ Just deactivate the plugin.
 
 How to change increment / decrement buttons design?
 ---------------------------------------------------
-Open themeszone-wc-ajax-qty/css/tz-wc-ajax-qty-public.css, there you will find css classes for the buttons,
+Open themeszone-woocommerce-ajax-quantity/css/tz-wc-ajax-qty-public.css, there you will find css classes for the buttons,
 override those classes in your themes's css.
 
 Changelog
