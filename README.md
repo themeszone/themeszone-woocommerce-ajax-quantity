@@ -18,6 +18,9 @@ The plugin once activated will display a quantity field with increment / decreme
 Thus allowing customers to change the products number in the cart with out having to go to shopping cart
 page.
 
+<a href="http://plugins.themes.zone">PLUGIN DEMO</a>
+(click "Add to Cart button to see it in action")
+
 
 Installation
 ============
