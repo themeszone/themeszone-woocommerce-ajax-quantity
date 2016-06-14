@@ -9,12 +9,12 @@ Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-ThemesZone WooCommerce Ajax Quantity Plugin shows quantity field on product listing once customer clicks add to cart button.
+ThemesZone WooCommerce Ajax Quantity Plugin shows quantity field on product listing once customer clicks "Add to Cart" button.
 
 Description
 ===========
 
-The plugin once activated will display a quantity field with increment / decrement buttons once add to cat button is pressed (e.g. the product is added to cart).
+The plugin once activated will display a quantity field with increment / decrement buttons once "add to cart" button is pressed (e.g. the product is added to cart).
 Thus allowing customers to change the products number in the cart with out having to go to shopping cart
 page.
 
