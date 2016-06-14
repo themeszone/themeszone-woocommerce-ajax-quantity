@@ -21,6 +21,8 @@ page.
 <a href="http://plugins.themes.zone">PLUGIN DEMO</a>
 (click "Add to Cart button to see it in action")
 
+Feel free to ask any questions at <a href="https://themes.zone">Themes Zone</a>
+
 
 Installation
 ============
