@@ -4,8 +4,8 @@ Contributors: themeszone
 Donate link: https://themes.zone
 Tags: woocommerce, ajax, quantity
 Requires at least: 4.5
-Tested up to: 4.5.2
-Stable tag: 1.0
+Tested up to: 4.5.3
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,6 +43,11 @@ override those classes in your themes's css.
 
 Changelog
 =========
+
+1.1
+---
+* WooCommerce 2.6.3 update, ajax variable fixed.
+
 1.0
 ---
 * Initial Release.

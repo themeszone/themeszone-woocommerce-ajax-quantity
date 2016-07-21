@@ -104,7 +104,7 @@
 
 
 			// We can also pass the url value separately from ajaxurl for front end AJAX implementations
-			$.post(tz_call.ajax_call_path, data, function(response) {
+			$.post(wc_add_to_cart_params.ajax_url, data, function(response) {
 
 				var fragments = response.fragments;
 				var cart_hash = response.cart_hash;
