@@ -41,13 +41,15 @@
 			};
 
 			var qty_form = $(sender).parents('li.product').find('.tz-qty-container');
-			var pos = $(sender).parents('li.product').find('a.button');
+			var pos = $(sender).parents('li.product').find('a.button[data-tz_qty_ajax="true"]');
 			var vv = $(sender).parents('li.product').find('a.added_to_cart');
-			pos.hide(); vv.remove();
-
-			qty_form.find('input.qty').prop( "disabled", true );
-			qty_form.removeClass('hidden');
-			qty_form.show();
+			if ( pos.length && qty_form.length ) {
+				pos.hide();
+				vv.remove();
+				qty_form.find('input.qty').prop( "disabled", true );
+				qty_form.removeClass('hidden');
+				qty_form.show();
+            }
 
 		});
 
@@ -163,6 +165,18 @@
 
 		});
 
+		$( document.body ).on('removed_from_cart', function( e, fragments, data, args) {
+           	var removed_product = args.context.dataset.product_id;
+           	var product_removed_button = $('[data-product_id="'+removed_product+'"]')
+		   	if ( product_removed_button.length && product_removed_button[0].hasAttribute('data-tz_qty_ajax') ) {
+           		var product_container = product_removed_button.parents('li.product');
+           		if ( product_container.length ) {
+           			var inp = product_container.find('.tz-qty-container .quantity input.qty');
+                    inp.val(0);
+                    $(inp).trigger('change');
+				}
+			}
+		});
 
 	});
 

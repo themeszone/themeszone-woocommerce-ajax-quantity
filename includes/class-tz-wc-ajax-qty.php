@@ -174,8 +174,9 @@ class TZ_WC_Ajax_Qty {
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-		$this->loader->add_action( 'plugins_loaded', $plugin_public, 'remove_add_to_cart_default' );
-		$this->loader->add_action( 'woocommerce_after_shop_loop_item', $plugin_public, 'custom_template_loop_add_to_cart', 10);
+		$this->loader->add_action( 'plugins_loaded', $plugin_public, 'replace_buttons' );
+		$this->loader->add_filter( 'woocommerce_loop_add_to_cart_link', $plugin_public, 'button_filter', 99, 3 );
+
 		
 		if ( is_admin() ) {
 			$this->loader->add_action( 'wp_ajax_tz_update_cart_qty', $plugin_public ,'cart_quantity_update' );

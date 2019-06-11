@@ -28,7 +28,9 @@
     display: none !important;
 }
 
-li.product a.button.added, li.product a.added_to_cart, li.product a.add_to_cart_button.hidden{
+li.product a.button.added[data-tz_qty_ajax="true"],
+li.product a.added_to_cart[data-tz_qty_ajax="true"],
+li.product a.add_to_cart_button.hidden[data-tz_qty_ajax="true"]{
     display: none !important;
 }
 

@@ -253,10 +253,21 @@ class TZ_WC_Ajax_Qty_Public {
         }
 	}
 
-	public function remove_add_to_cart_default() {
+	public function replace_buttons() {
 
 		remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart');
+        add_action( 'woocommerce_after_shop_loop_item', [$this, 'custom_template_loop_add_to_cart'], 10);
 
 	}
+
+	public function button_filter( $link, $product, $args ){
+
+        if ( ( get_option( 'tz_wc_ajax_qty_global' ) === 'yes' ) ||
+            ( get_post_meta( $product->get_id(), '_tz_qty_box_enabled', true ) === 'yes' )  ||
+            ( apply_filters( 'tz_wc_qty_ajax_filter', $product ) === true ) ) {
+            $link = str_replace( 'data-product_id="'.$product->get_id().'"', 'data-product_id="'.$product->get_id().'" data-tz_qty_ajax="true"', $link );
+        }
+        return $link;
+    }
 
 }
