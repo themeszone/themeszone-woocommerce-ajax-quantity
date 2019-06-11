@@ -69,11 +69,12 @@ class TZ_WC_Ajax_Qty {
 	public function __construct() {
 
 		$this->plugin_name = 'tz-wc-ajax-qty';
-		$this->version = '1.0.0';
+		$this->version = '1.2.0';
 
 		$this->load_dependencies();
 		$this->set_locale();
 		$this->define_public_hooks();
+        $this->define_admin_hooks();
 
 	}
 
@@ -107,6 +108,11 @@ class TZ_WC_Ajax_Qty {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-tz-wc-ajax-qty-i18n.php';
 
+        /**
+         * The class responsible for defining all actions that occur in the admin area.
+         */
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-tz-wc-ajax-qty-admin.php';
+
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
@@ -135,6 +141,26 @@ class TZ_WC_Ajax_Qty {
 	}
 
 
+    /**
+     * Register all of the hooks related to the admin area functionality
+     * of the plugin.
+     *
+     * @since    1.0.0
+     * @access   private
+     */
+    private function define_admin_hooks() {
+
+        $plugin_admin = new Tz_Wc_Ajax_Qty_Admin( $this->get_plugin_name(), $this->get_version() );
+
+        $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
+        $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+        $this->loader->add_filter( 'woocommerce_settings_tabs_array', $plugin_admin, 'add_wc_settings_tab',50 );
+        $this->loader->add_action( 'woocommerce_settings_tabs_settings_tab_demo', $plugin_admin, 'settings_tab' );
+        $this->loader->add_action( 'woocommerce_update_options_settings_tab_demo', $plugin_admin, 'update_settings' );
+        $this->loader->add_action( 'woocommerce_product_options_general_product_data', $plugin_admin, 'product_options_field' );
+        $this->loader->add_action( 'woocommerce_process_product_meta', $plugin_admin, 'process_product_meta' );
+    }
+
 	/**
 	 * Register all of the hooks related to the public-facing functionality
 	 * of the plugin.
@@ -142,9 +168,6 @@ class TZ_WC_Ajax_Qty {
 	 * @since    1.0.0
 	 * @access   private
 	 */
-
-
-
 	private function define_public_hooks() {
 
 		$plugin_public = new TZ_WC_Ajax_Qty_Public( $this->get_plugin_name(), $this->get_version() );

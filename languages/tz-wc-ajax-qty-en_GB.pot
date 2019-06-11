@@ -1,0 +1,56 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Themes Zone WC Ajax Quantity\n"
+"POT-Creation-Date: 2019-06-11 18:03+0100\n"
+"PO-Revision-Date: 2019-06-11 18:03+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.6\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/class-tz-wc-ajax-qty-admin.php:104
+msgid "Themes Zone Ajax Quantity"
+msgstr ""
+
+#: admin/class-tz-wc-ajax-qty-admin.php:115
+msgid "Global Product Listing Quantity Ajax Settings"
+msgstr ""
+
+#: admin/class-tz-wc-ajax-qty-admin.php:122
+msgid "Enable Quantity Field Globally"
+msgstr ""
+
+#: admin/class-tz-wc-ajax-qty-admin.php:123
+msgid ""
+"Enable Quantity Field on Product Listing for all non variational products "
+msgstr ""
+
+#: admin/class-tz-wc-ajax-qty-admin.php:127
+msgid ""
+"Checking this field will turn quantity field for all non variational products"
+msgstr ""
+
+#: admin/class-tz-wc-ajax-qty-admin.php:150
+msgid "Enable Ajax Quantity Box"
+msgstr ""
+
+#: admin/class-tz-wc-ajax-qty-admin.php:151
+msgid ""
+"Check this box if you want to enable Ajax Quantity field for this product."
+msgstr ""
+
+#: includes/class-tz-wc-ajax-qty-activator.php:35
+msgid ""
+"Themes Zone WC Ajax Quantity Plugin requires WooCommerce Plugin to work. "
+"Please install WooCommerce plugin before using it"
+msgstr ""

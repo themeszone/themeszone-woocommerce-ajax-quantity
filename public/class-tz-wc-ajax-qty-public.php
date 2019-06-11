@@ -192,7 +192,7 @@ class TZ_WC_Ajax_Qty_Public {
 		foreach( WC()->cart->get_cart() as $cart_item_key => $values ) {
 			$_product = $values['data'];
 
-			if( $product_id == $_product->id ) {
+			if( $product_id == $_product->get_id() ) {
 				return array('key'=>$cart_item_key, 'qty' => $values["quantity"]);
 			}
 		}
@@ -203,33 +203,54 @@ class TZ_WC_Ajax_Qty_Public {
 
 	public function custom_template_loop_add_to_cart( $args = array() ) {
 		global $product;
-
-		if ( $product ) {
+		if ( $product &&
+            ( ( get_option( 'tz_wc_ajax_qty_global' ) === 'yes' ) ||
+              ( get_post_meta( $product->get_id(), '_tz_qty_box_enabled', true ) === 'yes' )  ||
+              ( apply_filters( 'tz_wc_qty_ajax_filter', $product ) === true ) )
+        ) {
 			$defaults = array(
 				'quantity' => 1,
 				'class'    => implode( ' ', array_filter( array(
 						'button',
-						'product_type_' . $product->product_type,
-						$product->is_purchasable() && $product->is_in_stock() ? 'add_to_cart_button' : '',
-						$product->supports( 'ajax_add_to_cart' ) ? 'ajax_add_to_cart' : ''
-				) ) )
+                        'product_type_' . $product->get_type(),
+                        $product->is_purchasable() && $product->is_in_stock() ? 'add_to_cart_button' : '',
+                        $product->supports( 'ajax_add_to_cart' ) && $product->is_purchasable() && $product->is_in_stock() ? 'ajax_add_to_cart' : '',
+				) ) ),
+                'attributes' => array(
+                    'data-product_id'  => $product->get_id(),
+                    'data-product_sku' => $product->get_sku(),
+                    'aria-label'       => $product->add_to_cart_description(),
+                    'rel'              => 'nofollow',
+                ),
 			);
 
-			$args = apply_filters( 'woocommerce_loop_add_to_cart_args', wp_parse_args( $args, $defaults ), $product );
+            $args = apply_filters( 'woocommerce_loop_add_to_cart_args', wp_parse_args( $args, $defaults ), $product );
+
+            if ( isset( $args['attributes']['aria-label'] ) ) {
+                $args['attributes']['aria-label'] = wp_strip_all_tags( $args['attributes']['aria-label'] );
+            }
 
 			global $cart_item_info, $form_visible;
+
 			$form_visible = false;
 
-			$cart_item_info = $this->product_is_in_cart($product->get_id());
+            $prod_id = $product->get_id();
+
+			$cart_item_info = $this->product_is_in_cart($prod_id);
+
 			if ( $this->product_is_in_cart($product->get_id()) ) $args['class'] .= ' hidden ';
+
 			wc_get_template('loop/add-to-cart.php', $args);
+
 			if ( $product->is_purchasable() && !$product->is_sold_individually() ) {
 				if ( $this->product_is_in_cart($product->get_id()) )
 					$form_visible = true;
 			}
 			$this->get_template('qty-form.php');
 
-		}
+		} elseif ( $product ) {
+            woocommerce_template_loop_add_to_cart();
+        }
 	}
 
 	public function remove_add_to_cart_default() {

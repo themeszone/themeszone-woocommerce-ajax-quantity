@@ -9,14 +9,14 @@
  * that starts the plugin.
  *
  * @link              https://themes.zone
- * @since             1.0.0
+ * @since             1.2.0
  * @package           TZ_WC_Ajax_Qty
  *
  * @wordpress-plugin
  * Plugin Name:       Themes Zone WC Ajax Quantity
  * Plugin URI:        https://themes.zone/themes-zone-woocommerce-ajax-quantity-plugin/
  * Description:       Plugin adds a quantity filed on product listing page when customer clicks on add to cart button, thus allowing customers to change product quantity without having to go to the shopping cart to change the number of products.
- * Version:           1.0.0
+ * Version:           1.2.0
  * Author:            Themes Zone
  * Author URI:        https://themes.zone/
  * License:           GPL-2.0+

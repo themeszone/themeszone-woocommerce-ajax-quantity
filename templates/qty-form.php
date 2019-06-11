@@ -1,4 +1,4 @@
-<?php global $cart_item_info, $product, $form_visible; ?>
+<?php global $cart_item_info, $product, $form_visible, $link; ?>
 <div class="tz-qty-container <?php echo ( $form_visible ) ? '' : 'hidden'; ?>">
 	<span class="tz-qty-cont minus">-</span>
 	<?php
@@ -9,7 +9,7 @@
 		'input_value' => ( isset( $cur_qty ) ? $cur_qty : 1 ),
 
 	) );
-	echo sprintf( '<input type="hidden" data-product_id="%s" data-product_sku="%s"  data-cart_id="%s" class="%s hidden button product_type_simple">', esc_attr( $product->id ), esc_attr( $product->get_sku() ),  esc_attr($cart_item_info['key']) ,esc_attr( $link['class'] ) );
+	echo sprintf( '<input type="hidden" data-product_id="%s" data-product_sku="%s"  data-cart_id="%s" class="%s hidden button product_type_simple">', esc_attr( $product->get_id() ), esc_attr( $product->get_sku() ),  esc_attr($cart_item_info['key']) ,esc_attr( $link['class'] ) );
 	?>
 	<span class="tz-qty-cont plus">+</span>
 </div>
